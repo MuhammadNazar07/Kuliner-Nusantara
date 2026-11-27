@@ -1,0 +1,43 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://www.agoda.com https://storage.1001resepnusantara.com https://radarmukomuko.bacakoran.co https://rricoid-assets.obs.ap-southeast-4.myhuaweicloud.com https://commons.wikimedia.org https://upload.wikimedia.org https://cdn.shopify.com https://cdn.store.link https://www.theworldonaplate.co.uk https://cdn-jpr.jawapos.com https://rri-portal-app-assets.obs.ap-southeast-4.myhuaweicloud.com https://ekaputratour.sgp1.cdn.digitaloceanspaces.com https://marketplace.canva.com https://images.happycow.net https://ucarecdn.com https://asiatiskarecept.se https://pekis.net https://www.bakmigm.com; connect-src 'self'; form-action 'self' https://wa.me; frame-ancestors 'none'; upgrade-insecure-requests"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains; preload"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=()"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Cross-Origin-Resource-Policy",
+          "value": "same-origin"
+        }
+      ]
+    }
+  ]
+}
