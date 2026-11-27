@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff4e6">
+  <meta name="description" content="Jelajahi makanan dan minuman khas Indonesia di Kuliner Nusantara.">
+  <meta property="og:type" content="website"><meta property="og:title" content="Kuliner Nusantara — Rasa Indonesia"><meta property="og:description" content="Temukan hidangan autentik Nusantara dan pesan menu favoritmu."><meta property="og:image" content="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=1200&q=85"><meta property="og:locale" content="id_ID">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com; connect-src 'self'; form-action 'self' https://wa.me; upgrade-insecure-requests">
+  <title>Kuliner Nusantara — Rasa Indonesia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Navigasi utama">
+      <a class="brand" href="#beranda" aria-label="Kuliner Nusantara, beranda"><span class="brand-mark">KN</span><span>Kuliner<span class="brand-accent">Nusantara</span></span></a>
+      <div class="header-actions"><div class="nav-links" id="navLinks">
+        <a href="#beranda">Beranda</a><a href="#katalog">Jelajahi</a><a href="#cara-pesan">Cara Pesan</a><a href="#tentang">Tentang</a>
+        </div><button class="cart-nav" id="cartButton">Keranjang <span id="cartCount">0</span></button><button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="beranda">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> Cita rasa dari seluruh Indonesia</span>
+        <h1>Setiap daerah punya cerita, <em>setiap rasa</em> punya kenangan.</h1>
+        <p>Temukan hidangan autentik Nusantara, dari masakan rumahan hingga jajanan favorit yang selalu bikin rindu.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#katalog">Jelajahi kuliner <span aria-hidden="true">↗</span></a><a class="text-link" href="#populer">Lihat yang populer</a></div>
+        <div class="hero-proof"><div class="avatar-stack"><span>🍜</span><span>🍛</span><span>🥥</span></div><div><strong>Ragam rasa Indonesia</strong><small>Dipilih untuk pecinta kuliner</small></div></div>
+      </div>
+      <div class="hero-visual">
+        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85" alt="Hidangan Nusantara tersaji di atas meja">
+        <div class="floating-note"><span>✦</span><div><strong>Rasa autentik</strong><small>Dari dapur lokal</small></div></div>
+        <div class="hero-stamp">100%<small> Cita rasa<br>Indonesia</small></div>
+      </div>
+    </section>
+
+    <section class="trust-strip wrap" aria-label="Keunggulan">
+      <div><span>✺</span><p><strong>Ragam pilihan</strong><small>Favorit dari berbagai daerah</small></p></div>
+      <div><span>♡</span><p><strong>Dukung UMKM</strong><small>Dari penjual lokal pilihan</small></p></div>
+      <div><span>⌁</span><p><strong>Pesan praktis</strong><small>Checkout langsung via WhatsApp</small></p></div>
+    </section>
+
+    <section class="section wrap" id="katalog">
+      <div class="section-heading">
+        <div><span class="eyebrow">JELAJAHI RASA</span><h2>Temukan favoritmu</h2><p>Pilih menu yang menggugah selera hari ini.</p></div>
+        <a class="text-link desktop-link" href="#populer">Pilihan populer <span>↗</span></a>
+      </div>
+      <div class="catalog-tools">
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Cari makanan atau minuman..." autocomplete="off"><kbd>Ctrl K</kbd></label>
+        <label class="sort-wrap"><span>Urutkan</span><select id="sortSelect" aria-label="Urutkan produk"><option value="featured">Rekomendasi</option><option value="low">Harga terendah</option><option value="high">Harga tertinggi</option><option value="name">Nama A–Z</option></select></label>
+      </div>
+      <label class="filter-extra">Daerah asal <select id="regionSelect" aria-label="Filter daerah"><option value="Semua">Semua daerah</option></select></label><div class="category-row" id="categoryList" aria-label="Filter kategori"></div>
+      <div class="results-line"><span id="resultCount">Menampilkan semua menu</span><button id="resetFilters" class="reset-btn">Reset filter</button></div>
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+      <div class="empty-state hidden" id="emptyState"><span>🍽️</span><h3>Menu belum ditemukan</h3><p>Coba kata kunci atau kategori lainnya.</p></div>
+    </section>
+
+    <section class="popular-band" id="populer">
+      <div class="wrap popular-inner">
+        <div><span class="eyebrow light-eyebrow">PILIHAN PECINTA KULINER</span><h2>Rasa yang selalu<br><em>dirindukan.</em></h2><p>Jelajahi hidangan pilihan yang punya tempat istimewa di hati banyak orang.</p><a class="btn btn-light" href="#katalog">Lihat semua menu <span>↗</span></a></div>
+        <div class="popular-photo"><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=1000&q=85" alt="Hidangan kari kaya rempah"><div class="photo-caption"><span>MENU PILIHAN</span><strong>Hangat, kaya rempah, penuh cerita.</strong></div></div>
+      </div>
+    </section>
+
+    <section class="section wrap howto" id="cara-pesan"><div class="section-heading"><div><span class="eyebrow">MUDAH DAN PRAKTIS</span><h2>Cara pesan</h2><p>Empat langkah sederhana sampai pesananmu dikonfirmasi.</p></div></div><div class="steps-grid"><article><b>01</b><h3>Pilih menu</h3><p>Jelajahi katalog dan masukkan pilihan ke keranjang.</p></article><article><b>02</b><h3>Isi checkout</h3><p>Lengkapi nama, nomor HP, alamat, dan catatan.</p></article><article><b>03</b><h3>Pilih pembayaran</h3><p>Gunakan QRIS, transfer bank, atau COD sesuai konfirmasi.</p></article><article><b>04</b><h3>Konfirmasi</h3><p>Kirim detail pesanan ke WhatsApp penjual.</p></article></div><p class="delivery-note"><strong>Info pengiriman:</strong> Ongkir dan estimasi tiba dikonfirmasi penjual berdasarkan alamat dan jarak.</p></section>
+    <section class="section wrap testimonials">
+      <div class="section-heading"><div><span class="eyebrow">CERITA PELANGGAN</span><h2>Kata mereka tentang rasa</h2><p>Pengalaman sederhana yang bikin ingin kembali.</p></div></div>
+      <div class="review-empty"><span>♡</span><div><strong>Jadilah pelanggan pertama yang berbagi cerita.</strong><p>Ulasan akan ditampilkan setelah diberikan pelanggan asli dengan izin mereka.</p></div></div>
+    </section>
+
+    <section class="about-section" id="tentang"><div class="wrap about-inner"><div class="about-icon">✺</div><div><span class="eyebrow">TENTANG KAMI</span><h2>Merayakan kekayaan rasa Indonesia.</h2><p>Kuliner Nusantara adalah katalog digital yang mempertemukan pecinta makanan dengan ragam hidangan khas Indonesia. Kami ingin membantu kuliner lokal dikenal lebih luas dan memudahkan siapa pun menemukan inspirasi makanan.</p></div><a class="btn btn-primary" href="#katalog">Mulai menjelajah <span>↗</span></a></div></section>
+  </main>
+
+  <footer class="footer"><div class="wrap footer-inner"><a class="brand footer-brand" href="#beranda"><span class="brand-mark">KN</span><span>Kuliner<span class="brand-accent">Nusantara</span></span></a><p>Merawat rasa, merayakan Indonesia.</p><span>© <span id="year"></span> Kuliner Nusantara</span><div id="footerContact" class="footer-contact"></div></div></footer>
+
+  <div class="overlay hidden" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Keranjang belanja" aria-hidden="true">
+    <div class="drawer-head"><div><span class="eyebrow">PESANANMU</span><h2>Keranjang</h2></div><button class="icon-button" id="closeCart" aria-label="Tutup keranjang">×</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-bottom"><div class="subtotal"><span>Subtotal</span><strong id="cartSubtotal">Rp0</strong></div><p class="fine-print">Ongkos kirim dan ketersediaan akan dikonfirmasi penjual melalui WhatsApp.</p><button class="btn btn-primary checkout-btn" id="checkoutButton">Checkout via WhatsApp <span>↗</span></button></div>
+  </aside>
+
+  <section class="detail-modal hidden" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="detailName">
+    <button class="icon-button modal-close" id="closeDetail" aria-label="Tutup detail">×</button>
+    <div id="detailContent"></div>
+  </section>
+  <section class="checkout-modal hidden" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle"><div class="checkout-head"><div><span class="eyebrow">SELANGKAH LAGI</span><h2 id="checkoutTitle">Checkout pesanan</h2></div><button class="icon-button" id="closeCheckout" aria-label="Tutup checkout">×</button></div><form id="checkoutForm" novalidate><div class="form-grid"><label>Nama lengkap<input name="name" required maxlength="80" autocomplete="name" placeholder="Nama penerima"></label><label>Nomor HP<input name="phone" required inputmode="tel" maxlength="16" autocomplete="tel" placeholder="08xxxxxxxxxx"></label><label class="full-field">Alamat lengkap<textarea name="address" required maxlength="400" rows="2" placeholder="Jalan, nomor rumah, kecamatan, kota"></textarea></label><label class="full-field">Catatan (opsional)<textarea name="note" maxlength="300" rows="2"></textarea></label></div><div class="payment-options"><h3>Metode pembayaran</h3><label><input type="radio" name="payment" value="QRIS" checked><span><strong>QRIS</strong><small>Scan QRIS penjual</small></span></label><label><input type="radio" name="payment" value="Transfer Bank"><span><strong>Transfer bank</strong><small>Transfer ke rekening penjual</small></span></label><label><input type="radio" name="payment" value="COD"><span><strong>COD</strong><small>Bayar saat pesanan diterima, setelah disetujui penjual</small></span></label></div><div class="payment-info" id="paymentInfo"></div><label class="proof-upload">Bukti pembayaran (opsional, gambar)<input type="file" id="paymentProof" accept="image/*"><small id="proofName">Pilih gambar bukti transfer/QRIS. File akan dilampirkan manual di WhatsApp.</small></label><div class="order-summary"><h3>Ringkasan pesanan</h3><div id="checkoutItems"></div><div class="subtotal"><span>Total sementara</span><strong id="checkoutTotal">Rp0</strong></div><small>Ongkir belum termasuk.</small></div><button class="btn btn-primary checkout-submit" type="submit">Buat pesanan & konfirmasi WhatsApp ↗</button></form></section>
+  <section class="status-modal hidden" id="statusModal" role="dialog" aria-modal="true" aria-labelledby="statusTitle"><div class="checkout-head"><h2 id="statusTitle">Status pesanan</h2><button class="icon-button" id="closeStatus" aria-label="Tutup">×</button></div><div id="statusContent"></div></section>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
